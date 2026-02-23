@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Toko Bunga Flozwuy - Aisha Athaliah</title>
+<style>
+body{font-family:Arial;background:#ffd1dc;margin:0}
+header{background:#ff3385;color:white;padding:20px;text-align:center}
+footer{background:#ff3385;color:white;padding:10px;text-align:center;margin-top:20px}
+.container{text-align:center;padding:20px}
+.produk{background:white;padding:15px;margin:10px;display:inline-block;width:220px;border-radius:10px;box-shadow:0 0 10px gray}
+.produk img{width:100%;border-radius:10px}
+button{background:#ff4da6;color:white;border:none;padding:10px;border-radius:5px}
+#keranjang,#struk{background:white;padding:20px;margin-top:20px;border-radius:10px;width:60%;margin-left:auto;margin-right:auto}
+#struk{display:none}
+</style>
+</head>
+<body>
+
+<header>
+TOKO BUNGA FLOZWUY PREMIUM<br>
+Aisha Athaliah - Kelas 12-3
+</header>
+
+<div class="container">
+
+<div class="produk">
+<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23">
+<h3>Mawar</h3>
+<p>Rp 25000</p>
+<button onclick="tambah('Mawar',25000)">Beli</button>
+</div>
+
+<div class="produk">
+<img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d">
+<h3>Tulip</h3>
+<p>Rp 40000</p>
+<button onclick="tambah('Tulip',40000)">Beli</button>
+</div>
+
+<div id="keranjang">
+<input id="nama" placeholder="Nama Pembeli">
+<ul id="list"></ul>
+<p>Total Rp <span id="total">0</span></p>
+<button onclick="buatStruk()">Cetak Struk</button>
+</div>
+
+<div id="struk">
+<p id="namaStruk"></p>
+<div id="isiStruk"></div>
+<p id="totalStruk"></p>
+<button onclick="window.print()">Print</button>
+</div>
+
+</div>
+
+<footer>
+Project by Aisha Athaliah - 12-3
+</footer>
+
+<script>
+let total=0;
+let isi="";
+
+function tambah(n,h){
+let li=document.createElement("li");
+li.innerHTML=n+" Rp "+h;
+document.getElementById("list").appendChild(li);
+total+=h;
+document.getElementById("total").innerHTML=total;
+isi+=n+" "+h+"<br>";
+}
+
+function buatStruk(){
+document.getElementById("struk").style.display="block";
+document.getElementById("namaStruk").innerHTML="Pembeli: "+document.getElementById("nama").value;
+document.getElementById("isiStruk").innerHTML=isi;
+document.getElementById("totalStruk").innerHTML="Total: Rp "+total;
+}
+</script>
+
+</body>
+</html>
