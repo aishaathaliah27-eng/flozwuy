@@ -2,80 +2,265 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Toko Bunga Flozwuy - Aisha Athaliah</title>
+<title>Toko Bunga Flozwuy Premium</title>
+
 <style>
-body{font-family:Arial;background:#ffd1dc;margin:0}
-header{background:#ff3385;color:white;padding:20px;text-align:center}
-footer{background:#ff3385;color:white;padding:10px;text-align:center;margin-top:20px}
-.container{text-align:center;padding:20px}
-.produk{background:white;padding:15px;margin:10px;display:inline-block;width:220px;border-radius:10px;box-shadow:0 0 10px gray}
-.produk img{width:100%;border-radius:10px}
-button{background:#ff4da6;color:white;border:none;padding:10px;border-radius:5px}
-#keranjang,#struk{background:white;padding:20px;margin-top:20px;border-radius:10px;width:60%;margin-left:auto;margin-right:auto}
-#struk{display:none}
+
+body{
+font-family:Arial;
+background:linear-gradient(to right,#ffd1dc,#ffe4ec);
+margin:0;
+}
+
+header{
+background:#ff3385;
+color:white;
+padding:20px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+box-shadow:0 3px 10px gray;
+}
+
+footer{
+background:#ff3385;
+color:white;
+padding:10px;
+text-align:center;
+margin-top:20px;
+}
+
+.container{
+text-align:center;
+padding:20px;
+}
+
+.produk{
+background:white;
+padding:15px;
+margin:15px;
+display:inline-block;
+width:220px;
+border-radius:15px;
+box-shadow:0 0 15px gray;
+transition:0.3s;
+}
+
+.produk:hover{
+transform:scale(1.05);
+}
+
+.produk img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:10px;
+}
+
+button{
+background:#ff4da6;
+color:white;
+border:none;
+padding:10px;
+border-radius:8px;
+cursor:pointer;
+margin-top:5px;
+}
+
+button:hover{
+background:#e60073;
+}
+
+#keranjang,#struk{
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:15px;
+width:60%;
+margin-left:auto;
+margin-right:auto;
+box-shadow:0 0 10px gray;
+}
+
+#struk{
+display:none;
+}
+
 </style>
+
 </head>
 <body>
 
 <header>
-TOKO BUNGA FLOZWUY PREMIUM<br>
+TOKO BUNGA FLOZWUY PREMIUM 🌸<br>
 Aisha Athaliah - Kelas 12-3
 </header>
 
+
 <div class="container">
 
+
+<!-- MAWAR -->
 <div class="produk">
-    <img src="mawar.jpg">
-    <h3>Bunga Mawar</h3>
-    <p>Bunga mawar melambangkan cinta dan kasih sayang.</p>
+
+<img src="mawar.jpg">
+
+<h3>Mawar</h3>
+
+<p>Rp 25000</p>
+
+<button onclick="tambah('Mawar',25000)">
+Beli
+</button>
+
 </div>
 
+
+<!-- TULIP -->
 <div class="produk">
-    <img src="tulip.jpg">
-    <h3>Bunga Tulip</h3>
-    <p>Bunga tulip melambangkan kebahagiaan dan keindahan.</p>
+
+<img src="tulip.jpg">
+
+<h3>Tulip</h3>
+
+<p>Rp 40000</p>
+
+<button onclick="tambah('Tulip',40000)">
+Beli
+</button>
+
 </div>
+
+
+<!-- LAVENDER -->
+<div class="produk">
+
+<img src="lavender.jpg">
+
+<h3>Lavender</h3>
+
+<p>Rp 30000</p>
+
+<button onclick="tambah('Lavender',30000)">
+Beli
+</button>
+
+</div>
+
+
+<!-- ANGGREK -->
+<div class="produk">
+
+<img src="anggrek.jpg">
+
+<h3>Anggrek</h3>
+
+<p>Rp 50000</p>
+
+<button onclick="tambah('Anggrek',50000)">
+Beli
+</button>
+
+</div>
+
+
+
+<!-- KERANJANG -->
 
 <div id="keranjang">
+
+<h2>Keranjang</h2>
+
 <input id="nama" placeholder="Nama Pembeli">
+
 <ul id="list"></ul>
+
 <p>Total Rp <span id="total">0</span></p>
-<button onclick="buatStruk()">Cetak Struk</button>
+
+<button onclick="buatStruk()">
+Cetak Struk
+</button>
+
 </div>
+
+
+
+<!-- STRUK -->
 
 <div id="struk">
+
+<h2>Struk Pembelian</h2>
+
 <p id="namaStruk"></p>
+
 <div id="isiStruk"></div>
+
 <p id="totalStruk"></p>
-<button onclick="window.print()">Print</button>
-</div>
+
+<button onclick="window.print()">
+Print
+</button>
 
 </div>
+
+
+
+</div>
+
+
 
 <footer>
-Project by Aisha Athaliah - 12-3
+
+Project Premium by Aisha Athaliah 🌸
+
 </footer>
 
+
+
 <script>
+
 let total=0;
+
 let isi="";
 
-function tambah(n,h){
+
+function tambah(nama,harga)
+{
+
 let li=document.createElement("li");
-li.innerHTML=n+" Rp "+h;
+
+li.innerHTML=nama+" - Rp "+harga;
+
 document.getElementById("list").appendChild(li);
-total+=h;
+
+total+=harga;
+
 document.getElementById("total").innerHTML=total;
-isi+=n+" "+h+"<br>";
+
+isi+=nama+" - Rp "+harga+"<br>";
+
 }
 
-function buatStruk(){
+
+
+function buatStruk()
+{
+
 document.getElementById("struk").style.display="block";
-document.getElementById("namaStruk").innerHTML="Pembeli: "+document.getElementById("nama").value;
+
+document.getElementById("namaStruk").innerHTML=
+"Pembeli: "+document.getElementById("nama").value;
+
 document.getElementById("isiStruk").innerHTML=isi;
-document.getElementById("totalStruk").innerHTML="Total: Rp "+total;
+
+document.getElementById("totalStruk").innerHTML=
+"Total: Rp "+total;
+
 }
+
+
 </script>
+
 
 </body>
 </html>
